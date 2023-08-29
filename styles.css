@@ -19,6 +19,9 @@ h2 {
   width: 175px;
   
 }
-#intro-text {
-    
+.country {
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+    background: red;
 }
