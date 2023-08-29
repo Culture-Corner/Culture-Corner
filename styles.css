@@ -1,0 +1,24 @@
+header {
+  background-color: #900C3F;
+}
+h1 {
+  color: white;
+}
+h2 {
+  color: #900C3F;
+}
+#main-header {
+  display: flex;
+  justify-content: space-around
+}
+#randomizer {
+  color: white;
+  background: #4E6C50;
+  /* padding: 11px 22px; */
+  height: 41px;
+  width: 175px;
+  
+}
+#intro-text {
+    
+}

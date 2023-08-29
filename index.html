@@ -3,20 +3,28 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Tester</title>
+ <title>Culture Corner</title>
+ <link rel="stylesheet" href="styles.css">
 </head>
 <body>
- <h1>Test your API!</h1>
- <script>
-   const testRoute = async (url) => {
-     const response = await fetch(url)
-     const data = await response.json()
-     console.log('data:', data);
-   }
-   const url2 = 'https://www.themealdb.com/api/json/v1/1/random.php';
-  
-   testRoute(url2);
-   
- </script>
+  <header id="header">
+    <h1>Culture Corner🧑🏾‍🍳</h1>
+  </header>
+  <main>
+    <div id="main-header">
+    <h2 id="intro-text">Choose a cuisine to view related meals</h2>
+    <button id="randomizer">Randomizer</button>
+    </div>
+    <div id="countries">
+
+    </div>
+    <div id="favorites">
+      <h3 id="favorite-text"></h3>
+    </div>
+  </main>
+  <footer>
+
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
