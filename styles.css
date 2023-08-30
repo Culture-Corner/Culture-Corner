@@ -25,3 +25,14 @@ h2 {
     margin: 20px;
     background: red;
 }
+#meal-div{
+  border: solid black 1px;
+  height: 300px;
+  width: 300px;
+}
+.cousine-meal-img {
+  height: 150px;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+}
