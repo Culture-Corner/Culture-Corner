@@ -7,7 +7,15 @@ h1 {
 h2 {
   color: #900C3F;
 }
-#main-header {
+#countries {
+  margin: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+  #main-header {
   display: flex;
   justify-content: space-around
 }
@@ -20,19 +28,35 @@ h2 {
   
 }
 .country {
-    height: 100px;
-    width: 100px;
+    height: 250px;
+    width: 250px;
     margin: 20px;
     background: red;
+    font-size: 27px;
+    text-align: center;
+    padding: 0px 0px;
+}
+.country:hover{
+  cursor: pointer;
 }
 #meal-div{
-  border: solid black 1px;
-  height: 300px;
-  width: 300px;
+  background: rgba(144,13,62, 25%);
+  padding: 30px;
+  margin: 20px;
+  height: 250px;
+  width: 250px;
+  
+}
+#meal-div:hover{
+  cursor: pointer;
 }
 .cousine-meal-img {
-  height: 150px;
-    width: 150px;
+  height: 200px;
+    width: 200px;
     display: block;
     margin: 0 auto;
+}
+#food-name {
+  text-align: center;
+  margin-top: 0px;
 }
