@@ -1,9 +1,17 @@
+body {
+  max-width: 1214px;
+  display: block;
+  margin: 0 auto;
+}
 header {
   background-color: #900C3F;
 }
 #website-name {
   color: white;
   font-size: 40px;
+}
+#website-name:hover {
+  cursor: pointer;
 }
 #intro-text {
   color: #900C3F;
@@ -17,8 +25,11 @@ header {
   height: 100px;
 }
   #main-header {
+    margin: 0 auto;
   display: flex;
-  justify-content: space-around
+  justify-content: space-between;
+  align-items: center;
+  width: 900px;
 }
 #randomizer {
   color: white;
@@ -28,11 +39,10 @@ header {
   width: 175px;
   
 }
-.country {
+ .country {
     height: 250px;
-    width: 250px;
+    width: 250px; 
     margin: 20px;
-    /* padding: 120px 0px; */
     background: rgba(38, 79, 15, 0.75);
     font-size: 27px;
     text-align: center;
@@ -41,6 +51,10 @@ header {
 }
 .country:hover{
   cursor: pointer;
+}
+.country-name {
+  margin: 0px;
+  line-height: 250px;
 }
 #meal-div{
   background: rgba(144,13,62, 25%);
@@ -68,4 +82,8 @@ header {
   width: 700px;
   display: block;
   margin: 0 auto;
+  border: solid 3px rgb(219, 217, 217)
+}
+#meal-details {
+  padding: 0px 15px;
 }

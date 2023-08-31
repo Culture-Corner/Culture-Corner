@@ -5,6 +5,9 @@ let countriesDiv = document.querySelector("#countries")
 //show name of country and image
 const display = async () => {
   try {
+    countriesDiv.textContent = "";
+    countriesDiv.setAttribute("id","countries")
+    introText.textContent = "Choose a cuisine to view related meals";
     let response = await fetch(
       "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
     );
@@ -12,8 +15,12 @@ const display = async () => {
     for (let idx = 0; idx < areaData.meals.length; idx++) {
       let meal = areaData.meals[idx];
       let newDiv = document.createElement("div");
-      newDiv.textContent = meal.strArea;
+      let countryName = document.createElement("h3");
+      countryName.classList.add("country-name")
+      countryName.textContent = meal.strArea;
+      newDiv.append(countryName)
       newDiv.setAttribute("id", meal.strArea);
+      countryName.setAttribute("id", meal.strArea);
       newDiv.classList.add("country");
       countriesDiv.appendChild(newDiv);
     }
@@ -30,7 +37,7 @@ let country = document.querySelectorAll(".country");
 
 async function showCousine(event) {
   try {
-    if (event.target.classList[0] === "country") {
+    if (event.target.classList[0] === "country" || event.target.classList[0] === "country-name") {
     let area = await event.target.id;
     let cousineResponse = await fetch(
       "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + area
@@ -71,27 +78,13 @@ const displayMealDetails = (mealDetails) => {
   foodImg.setAttribute("src", mealDetails.strMealThumb)
   foodImg.setAttribute("class", "meal-img");
   let cousine = document.createElement("h3");
-  cousine.textContent = `Cousine: ${mealDetails.strArea}`
-  // console.log(mealDetails.strInstructions)
-  
-  
-  /*
-  for (let i = 0; i < mealDetails.length; i++){
-    if (mealDetails[i] !== ''){
-    } console.log(mealDetails[i])
-  }
-**/
-
-
-  
-
-  //append to DOM 
+  cousine.textContent = `Cousine: ${mealDetails.strArea}`;
   countriesDiv.append(foodImg)
   countriesDiv.append(cousine)
 
   const ingredients = (mealDetails) => {
     let greetIngredient = document.createElement("h3")
-    greetIngredient.textContent = "These are the Ingredients:"
+    greetIngredient.textContent = "Ingredients:"
 
     
     let ul = document.createElement("ul")
@@ -107,8 +100,11 @@ const displayMealDetails = (mealDetails) => {
   }
     ingredients(mealDetails)
 
+  let greetInstructions = document.createElement("h3");
+  greetInstructions.textContent = "Instructions:";
   let instructions = document.createElement("p")
   instructions.textContent = mealDetails.strInstructions
+  countriesDiv.append(greetInstructions)
   countriesDiv.append(instructions)
 }
 
@@ -144,3 +140,6 @@ randomizer.addEventListener("click", eventHandler);
 countriesDiv.addEventListener("click", showCousine);
 countriesDiv.addEventListener("click", showMeal);
 
+
+let websiteName = document.querySelector("#website-name");
+websiteName.addEventListener("click", display)
