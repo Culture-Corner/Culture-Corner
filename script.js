@@ -20,7 +20,7 @@ const display = async () => {
   } catch (error) {
     console.log("error: " + error);
   }
-  
+
 }
 display()
 
@@ -37,7 +37,7 @@ async function showCousine(event) {
     );
     let cousineMeals = await cousineResponse.json()
     introText.textContent = `${area} Meals`
-    countries.textContent = ""
+    countriesDiv.textContent = ""
     for (let idx = 0; idx < cousineMeals.meals.length; idx++) {
       let mealDetails = cousineMeals.meals[idx];
       let mealDiv = document.createElement("div")
@@ -51,7 +51,7 @@ async function showCousine(event) {
       foodImg.setAttribute("src", mealDetails.strMealThumb)
       foodImg.setAttribute("class", "cousine-meal-img");
       foodImg.dataset.id = mealDetails.idMeal;
-      countries.append(mealDiv)
+      countriesDiv.append(mealDiv)
       mealDiv.append(foodName)
       mealDiv.append(foodImg);
 
@@ -62,13 +62,66 @@ async function showCousine(event) {
   }
 }
 
+const displayMealDetails = (mealDetails) => {
+  console.log(mealDetails)
+  countriesDiv.setAttribute("id", "meal-details")
+  countriesDiv.textContent = ""
+  introText.textContent = mealDetails.strMeal;
+  let foodImg = document.createElement("img");
+  foodImg.setAttribute("src", mealDetails.strMealThumb)
+  foodImg.setAttribute("class", "meal-img");
+  let cousine = document.createElement("h3");
+  cousine.textContent = `Cousine: ${mealDetails.strArea}`
+  // console.log(mealDetails.strInstructions)
+  
+  
+  /*
+  for (let i = 0; i < mealDetails.length; i++){
+    if (mealDetails[i] !== ''){
+    } console.log(mealDetails[i])
+  }
+**/
+
+
+  
+
+  //append to DOM 
+  countriesDiv.append(foodImg)
+  countriesDiv.append(cousine)
+
+  const ingredients = (mealDetails) => {
+    let greetIngredient = document.createElement("h3")
+    greetIngredient.textContent = "These are the Ingredients:"
+
+    
+    let ul = document.createElement("ul")
+    for (let i = 1; i < 20; i++) { 
+      if (mealDetails[`strIngredient${i}`]){
+        let list = document.createElement("li")
+        list.textContent = mealDetails[`strIngredient${i}`]
+        ul.append(list)
+      }
+      countriesDiv.append(greetIngredient)
+      countriesDiv.append(ul)
+    }
+  }
+    ingredients(mealDetails)
+
+  let instructions = document.createElement("p")
+  instructions.textContent = mealDetails.strInstructions
+  countriesDiv.append(instructions)
+}
+
+
 
 const showMeal = async (event) => {
   try {
     if (event.target.dataset.id) {
-    console.log("meal clicked")
-    let id = await event.target.dataset;
-    console.log(id)
+    
+    let id = event.target.dataset.id
+    let mealDetailsResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
+    let mealDetails = await mealDetailsResponse.json()
+    displayMealDetails(mealDetails.meals[0])
     
     }
   } catch(error) {
@@ -78,6 +131,16 @@ const showMeal = async (event) => {
 
 
 
-countries.addEventListener("click", showCousine);
-countries.addEventListener("click", showMeal);
+let randomizer = document.querySelector("#randomizer")
+
+const eventHandler = async (event) => {
+  let randomButton = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
+  let randomArr = await randomButton.json()
+  displayMealDetails(randomArr.meals[0])
+}
+
+
+randomizer.addEventListener("click", eventHandler);
+countriesDiv.addEventListener("click", showCousine);
+countriesDiv.addEventListener("click", showMeal);
 

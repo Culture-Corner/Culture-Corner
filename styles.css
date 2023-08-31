@@ -1,10 +1,11 @@
 header {
   background-color: #900C3F;
 }
-h1 {
+#website-name {
   color: white;
+  font-size: 40px;
 }
-h2 {
+#intro-text {
   color: #900C3F;
 }
 #countries {
@@ -31,10 +32,12 @@ h2 {
     height: 250px;
     width: 250px;
     margin: 20px;
-    background: red;
+    /* padding: 120px 0px; */
+    background: rgba(38, 79, 15, 0.75);
     font-size: 27px;
     text-align: center;
     padding: 0px 0px;
+    color: white;
 }
 .country:hover{
   cursor: pointer;
@@ -59,4 +62,10 @@ h2 {
 #food-name {
   text-align: center;
   margin-top: 0px;
+}
+.meal-img {
+  height: 700px;
+  width: 700px;
+  display: block;
+  margin: 0 auto;
 }
