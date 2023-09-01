@@ -1,6 +1,6 @@
 let introText = document.querySelector("#intro-text")
 let countriesDiv = document.querySelector("#countries")
-
+let mealsShown = []
 
 //show name of country and image
 const display = async () => {
@@ -43,16 +43,16 @@ async function showCousine(event) {
       "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + area
     );
     let cousineMeals = await cousineResponse.json()
-    introText.textContent = `${area} Meals`
+    introText.textContent = `Click a meal to view it's recipe`
     countriesDiv.textContent = ""
     for (let idx = 0; idx < cousineMeals.meals.length; idx++) {
       let mealDetails = cousineMeals.meals[idx];
       let mealDiv = document.createElement("div")
-      mealDiv.setAttribute("id", "meal-div")
+      mealDiv.setAttribute("class", "meal-div")
       mealDiv.dataset.id = mealDetails.idMeal;
       let foodName = document.createElement("h3");
       foodName.textContent = mealDetails.strMeal;
-      foodName.setAttribute("id", "food-name")
+      foodName.setAttribute("class", "food-name")
       foodName.dataset.id = mealDetails.idMeal;
       let foodImg = document.createElement("img");
       foodImg.setAttribute("src", mealDetails.strMealThumb)
@@ -70,7 +70,6 @@ async function showCousine(event) {
 }
 
 const displayMealDetails = (mealDetails) => {
-  console.log(mealDetails)
   countriesDiv.setAttribute("id", "meal-details")
   countriesDiv.textContent = ""
   introText.textContent = mealDetails.strMeal;
@@ -79,8 +78,14 @@ const displayMealDetails = (mealDetails) => {
   foodImg.setAttribute("class", "meal-img");
   let cousine = document.createElement("h3");
   cousine.textContent = `Cousine: ${mealDetails.strArea}`;
+  cousine.setAttribute("id", "cousine");
   countriesDiv.append(foodImg)
   countriesDiv.append(cousine)
+
+  let category = document.createElement("h3");
+  category.textContent = `Category: ${mealDetails.strCategory}`;
+  category.setAttribute("id", "category")
+  countriesDiv.append(category);
 
   const ingredients = (mealDetails) => {
     let greetIngredient = document.createElement("h3")
@@ -91,14 +96,14 @@ const displayMealDetails = (mealDetails) => {
     for (let i = 1; i < 20; i++) { 
       if (mealDetails[`strIngredient${i}`]){
         let list = document.createElement("li")
-        list.textContent = mealDetails[`strIngredient${i}`]
+        list.textContent = mealDetails[`strMeasure${i}`] + " " + mealDetails[`strIngredient${i}`];
         ul.append(list)
       }
       countriesDiv.append(greetIngredient)
       countriesDiv.append(ul)
     }
   }
-    ingredients(mealDetails)
+  ingredients(mealDetails)
 
   let greetInstructions = document.createElement("h3");
   greetInstructions.textContent = "Instructions:";
@@ -106,22 +111,39 @@ const displayMealDetails = (mealDetails) => {
   instructions.textContent = mealDetails.strInstructions
   countriesDiv.append(greetInstructions)
   countriesDiv.append(instructions)
+
+ 
+  if (mealDetails.strSource) {
+    let mealSource = document.createElement("p");
+    mealSource.setAttribute("id", "meal-source")
+    let mealSourceLink = document.createElement("a");
+    mealSourceLink.textContent = mealDetails.strSource;
+    mealSourceLink.setAttribute("href", mealDetails.strSource);
+    mealSourceLink.setAttribute("target", " _blank");
+    mealSource.textContent = `Meal Source: `;
+    mealSource.append(mealSourceLink);
+    countriesDiv.append(mealSource);
+  }
+  
+
+
+  mealDetails.isSaved = false;
+  mealsShown.push(mealDetails)
+  // console.log(mealsShown)
 }
 
-
-
-const showMeal = async (event) => {
+async function showMeal(event) {
   try {
     if (event.target.dataset.id) {
-    
-    let id = event.target.dataset.id
-    let mealDetailsResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
-    let mealDetails = await mealDetailsResponse.json()
-    displayMealDetails(mealDetails.meals[0])
-    
+
+      let id = event.target.dataset.id;
+      let mealDetailsResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
+      let mealDetails = await mealDetailsResponse.json();
+      displayMealDetails(mealDetails.meals[0]);
+
     }
-  } catch(error) {
-    console.log("error: " + error)
+  } catch (error) {
+    console.log("error: " + error);
   }
 }
 
@@ -130,9 +152,14 @@ const showMeal = async (event) => {
 let randomizer = document.querySelector("#randomizer")
 
 const eventHandler = async (event) => {
-  let randomButton = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
-  let randomArr = await randomButton.json()
-  displayMealDetails(randomArr.meals[0])
+  try {
+    let randomButton = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
+    let randomArr = await randomButton.json()
+    displayMealDetails(randomArr.meals[0])
+  } catch (error) {
+    console.log("error: " + error);
+  }
+  
 }
 
 

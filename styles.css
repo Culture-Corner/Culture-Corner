@@ -2,13 +2,16 @@ body {
   max-width: 1214px;
   display: block;
   margin: 0 auto;
+  font-family: sans-serif;
 }
 header {
   background-color: #900C3F;
 }
 #website-name {
   color: white;
-  font-size: 40px;
+  font-size: 45px;
+  font-family: 'Bebas Neue', serif;
+  margin-left: 10px;
 }
 #website-name:hover {
   cursor: pointer;
@@ -22,7 +25,6 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 100px;
 }
   #main-header {
     margin: 0 auto;
@@ -37,35 +39,47 @@ header {
   /* padding: 11px 22px; */
   height: 41px;
   width: 175px;
-  
+  box-shadow: 3px 3px 6px gray;
+  border: none;
+}
+#randomizer:hover {
+  cursor: pointer;
+  box-shadow: none;
 }
  .country {
     height: 250px;
     width: 250px; 
     margin: 20px;
-    background: rgba(38, 79, 15, 0.75);
+    background: rgba(38, 79, 15, 0.55);
     font-size: 27px;
     text-align: center;
     padding: 0px 0px;
     color: white;
+    border-radius: 50px;
+    box-shadow: 5px 3px 10px gray;
 }
 .country:hover{
   cursor: pointer;
+  box-shadow: none;
 }
 .country-name {
   margin: 0px;
   line-height: 250px;
 }
-#meal-div{
+.meal-div{
   background: rgba(144,13,62, 25%);
   padding: 30px;
   margin: 20px;
   height: 250px;
   width: 250px;
-  
+  border-radius:50px;
+  box-shadow: 5px 3px 10px gray;
+
 }
-#meal-div:hover{
+.meal-div:hover{
   cursor: pointer;
+  box-shadow: none;
+
 }
 .cousine-meal-img {
   height: 200px;
@@ -73,7 +87,7 @@ header {
     display: block;
     margin: 0 auto;
 }
-#food-name {
+.food-name {
   text-align: center;
   margin-top: 0px;
 }
@@ -86,4 +100,20 @@ header {
 }
 #meal-details {
   padding: 0px 15px;
+}
+#favorite-text {
+  color: #900C3F;
+
+}
+#cousine {
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+#category {
+  margin-top: 5px;
+  font-weight: 400;
+
+}
+#meal-source {
+  margin-top: 50px;
 }
