@@ -1,62 +1,73 @@
 body {
-  max-width: 1214px;
+  max-width: 950px;
   display: block;
   margin: 0 auto;
   font-family: sans-serif;
 }
 header {
   background-color: #900C3F;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
-#website-name {
+.website-name {
   color: white;
   font-size: 45px;
   font-family: 'Bebas Neue', serif;
   margin-left: 10px;
 }
-#website-name:hover {
+.website-name:hover {
   cursor: pointer;
 }
 #intro-text {
   color: #900C3F;
 }
-#countries {
+#countries, #favorites {
   margin: 5px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-  #main-header {
-    margin: 0 auto;
+.main-header {
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 900px;
 }
-#randomizer {
+.randomizer {
   color: white;
   background: #4E6C50;
-  /* padding: 11px 22px; */
   height: 41px;
   width: 175px;
   box-shadow: 3px 3px 6px gray;
   border: none;
 }
-#randomizer:hover {
+.randomizer:hover {
   cursor: pointer;
   box-shadow: none;
 }
- .country {
-    height: 250px;
-    width: 250px; 
-    margin: 20px;
-    background: rgba(38, 79, 15, 0.55);
-    font-size: 27px;
-    text-align: center;
-    padding: 0px 0px;
-    color: white;
-    border-radius: 50px;
-    box-shadow: 5px 3px 10px gray;
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-size: 23px;
+  margin: 40px 30px;
+  margin-top: 45px;
+}
+.country {
+  height: 250px;
+  width: 250px; 
+  margin: 20px;
+  background: rgba(38, 79, 15, 0.55);
+  font-size: 27px;
+  text-align: center;
+  padding: 0px 0px;
+  color: white;
+  border-radius: 50px;
+  box-shadow: 5px 3px 10px gray;
 }
 .country:hover{
   cursor: pointer;
@@ -70,10 +81,12 @@ header {
   background: rgba(144,13,62, 25%);
   padding: 30px;
   margin: 20px;
-  height: 250px;
-  width: 250px;
+  height: 70%;
   border-radius:50px;
   box-shadow: 5px 3px 10px gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
 }
 .meal-div:hover{
@@ -98,12 +111,22 @@ header {
   margin: 0 auto;
   border: solid 3px rgb(219, 217, 217)
 }
+.fa-heart {
+  font-size: 40px;
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 15px;
+  color: red;
+}
+.fa-heart:hover {
+  color: rgb(141, 117, 117);
+  cursor: pointer;
+}
 #meal-details {
   padding: 0px 15px;
 }
 #favorite-text {
   color: #900C3F;
-
 }
 #cousine {
   margin-bottom: 5px;
