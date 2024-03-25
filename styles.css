@@ -77,6 +77,216 @@ header {
   margin: 0px;
   line-height: 250px;
 }
+
+#American {
+  background : url(images/AmericanFlag.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+
+#British {
+  background : url(images/UK.jpg.avif);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+
+#Canadian {
+  background : url(images/CanadianFlag.jpg.avif);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+
+#Chinese {
+  background : url(images/Chinese.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+
+#Croatian {
+  background : url(images/Croatian.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+
+#Dutch {
+  background : url(images/Dutch.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+
+#Egyptian {
+  background : url(images/Egypt.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+  
+#Filipino {
+  background : url(images/Filipino.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+
+#French {
+  background : url(images/French.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+
+#Greek {
+  background : url(images/Greece.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+
+#Indian {
+  background : url(images/Indian.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+
+#Irish {
+  background : url(images/Irish.jpeg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+#Italian {
+  background : url(images/ItalianFlag.avif);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+#Jamaican {
+  background : url(images/Jamaican.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+#Japanese {
+  background : url(images/Japan.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+#Kenyan {
+  background : url(images/Kenya.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : white;
+}
+#Malaysian {
+  background : url(images/Malaysia.avif);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+#Mexican {
+  background : url(images/Mexico.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  object-fit: cover;
+}
+#Moroccan {
+  background : url(images/Morocco.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+#Polish {
+  background : url(images/Poland.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+
+#Portuguese {
+  background : url(images/portugal.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+#Russian {
+  background : url(images/Russian.avif);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+#Spanish {
+  background : url(images/Spanish.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+#Thai {
+  background : url(images/Thailand.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+#Tunisian {
+  background : url(images/Tunisia.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+#Turkish {
+  background : url(images/Turkish.avif);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+#Vietnamese {
+  background : url(images/vietnamese.jpg);
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
+
+#Unknown {
+  background-color: azure;
+  z-index: 0;
+  border-radius: 50px;
+  text-align: center;
+  color : black;
+}
 .meal-div{
   background: rgba(144,13,62, 25%);
   padding: 30px;
